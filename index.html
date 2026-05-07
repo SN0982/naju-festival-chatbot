@@ -472,7 +472,7 @@ const QA=[{id:"overview",keywords:["전체일정","전체","일정","언제","�
 const FALLBACK={answer:`죄송해요, 해당 내용은 제가 안내하기 어려운 부분이에요 😅
 
 아래 메뉴에서 궁금한 항목을 선택하시거나,
-행사 문의처 ☎️ <strong>061-335-0986</strong>으로 전화해 주세요!`,followUp:["📅 전체 일정","🎪 5월 축제 상세","🚗 오시는 길","📞 문의처"]};
+행사 문의처 ☎️ <strong>061-335-0986, 061-334-1551</strong>으로 전화해 주세요!`,followUp:["📅 전체 일정","🎪 5월 축제 상세","🚗 오시는 길","📞 문의처"]};
 
 function findBestMatch(input){const normalized=input.replace(/\s+/g,"").toLowerCase();let bestMatch=null;let bestScore=0;for(const qa of QA){let score=0;for(const kw of qa.keywords){const nkw=kw.replace(/\s+/g,"").toLowerCase();if(normalized.includes(nkw)){score+=nkw.length}}if(score>bestScore){bestScore=score;bestMatch=qa}}const btnMap={"📅 전체 일정":"overview","🎪 5월 축제 상세":"may_festival","🎪 이번 주말 행사":"may_festival","🚗 오시는 길":"transport","🥁 체험 프로그램":"programs","📍 장소별 안내":"venues","🅿️ 주차 안내":"parking","🛍️ 부대행사":"side_events","📞 문의처":"contact","🇫🇷 6월 행사":"june","🍂 9월 행사":"september","🎎 상시 프로그램":"always","👨‍👩‍👧‍👦 가족·어린이":"kids","🍜 먹거리":"food","🏕️ 도시캠핑":"camping","🏕️ 도심캠핑":"camping","💰 요금 안내":"free","📝 사전 접수 안내":"register","🎨 더시티 인 나주":"the_city"};if(btnMap[input]){bestMatch=QA.find(q=>q.id===btnMap[input]);bestScore=999}return bestScore>0?bestMatch:null}
 
