@@ -111,6 +111,7 @@
     color: var(--bot-text);
     border-bottom-left-radius: 6px;
     box-shadow: var(--shadow);
+    white-space: pre-line;
   }
   .user .msg-bubble {
     background: var(--user-bubble);
@@ -131,6 +132,18 @@
     background: #fff;
   }
   .map-caption { font-size: 12px; color: var(--text-light); margin-top: 4px; line-height: 1.5; }
+  .map-download {
+    display: inline-block;
+    margin: 8px 0 8px;
+    padding: 8px 12px;
+    border-radius: 14px;
+    background: var(--primary-light);
+    color: var(--primary-dark);
+    font-weight: 650;
+    font-size: 13px;
+    text-decoration: none;
+  }
+  .map-download:active, .map-download:hover { background: var(--primary); color: #fff; }
   .map-search-links { margin-top: 8px; }
   .map-search-links a { display: inline-block; margin: 2px 6px 2px 0; }
   .quick-replies {
@@ -362,10 +375,11 @@ const QA=[{id:"overview",keywords:["전체일정","전체","일정","언제","�
 📍 인력거: 정수루 앞 탑승장 (금계동 33-18)
 📍 한복: 나주정미소 (과원길 5)`,followUp:["📅 전체 일정","🎪 5월 축제 상세","📍 장소별 안내"]},{id:"map_info",keywords:["주차지도","주차 지도","통제지도","통제 지도","지도보여줘","지도 보여줘","약도","배치도","주차장지도","주차장 지도","행사장지도","행사장 지도","통제구간지도","통제구간 지도"],title:"🗺️ 주차·통제 지도",answer:`<strong>🗺️ 주차·통제 지도</strong>
 
-<a class="map-link" href="${PARKING_MAP_IMAGE}" target="_blank" rel="noopener">
+<a class="map-link" href="${PARKING_MAP_IMAGE}" download="나주읍성_주차통제지도.jpg">
   <img class="map-img" src="${PARKING_MAP_IMAGE}" alt="나주읍성 문화대잔치 주차장 및 차량 통제구간 안내 지도">
 </a>
-<div class="map-caption">※ 이미지를 누르면 크게 볼 수 있어요. 지도상 붉은색은 차량통제구간, 번호는 주차 가능 공간입니다.</div>
+<a class="map-download" href="${PARKING_MAP_IMAGE}" download="나주읍성_주차통제지도.jpg">📥 지도 이미지 다운로드</a>
+<div class="map-caption">※ 지도 이미지를 누르거나 다운로드 버튼을 누르면 이미지를 저장할 수 있어요. 지도상 붉은색은 차량통제구간, 번호는 주차 가능 공간입니다.</div>
 
 지도에서 <strong>붉은색 구간</strong>은 차량통제구간이며, <strong>번호 01~10</strong>은 주차 가능 공간입니다.
 
@@ -391,10 +405,11 @@ const QA=[{id:"overview",keywords:["전체일정","전체","일정","언제","�
 나주읍성 인근 공영주차장 이용 가능
 ⚠️ 축제 기간 중 혼잡 예상, <strong>대중교통 이용을 권장</strong>합니다!`,followUp:["🗺️ 주차·통제 지도","🅿️ 주차 안내","📞 문의처"]},{id:"parking",keywords:["주차","주차장","파킹","세워","세울","주차비","공영주차장","주차가능","주차 가능","금성관 주차","정수루 주차","서성문 주차","나주성당","성북동행정복지센터","남고문","금성지구대","세영아파트","나주신협","신성문화관"],title:"🅿️ 주차 가능 공간 안내",answer:`<strong>🅿️ 주차 가능 공간 안내</strong>
 
-<a class="map-link" href="${PARKING_MAP_IMAGE}" target="_blank" rel="noopener">
+<a class="map-link" href="${PARKING_MAP_IMAGE}" download="나주읍성_주차통제지도.jpg">
   <img class="map-img" src="${PARKING_MAP_IMAGE}" alt="나주읍성 문화대잔치 주차장 및 차량 통제구간 안내 지도">
 </a>
-<div class="map-caption">※ 이미지를 누르면 크게 볼 수 있어요. 지도상 붉은색은 차량통제구간, 번호는 주차 가능 공간입니다.</div>
+<a class="map-download" href="${PARKING_MAP_IMAGE}" download="나주읍성_주차통제지도.jpg">📥 지도 이미지 다운로드</a>
+<div class="map-caption">※ 지도 이미지를 누르거나 다운로드 버튼을 누르면 이미지를 저장할 수 있어요. 지도상 붉은색은 차량통제구간, 번호는 주차 가능 공간입니다.</div>
 
 행사장 주변 공영주차장 안내입니다. 괄호 안은 주차 가능 대수예요.
 
@@ -431,10 +446,11 @@ const QA=[{id:"overview",keywords:["전체일정","전체","일정","언제","�
 ⚠️ 행사 당일에는 금성관·정수루·동헌터 주변 주요 행사구간에 차량 통제가 있을 수 있어요. 인근 공영주차장 이용 후 도보 이동을 권장드립니다.`,followUp:["🚧 통제구간","🚗 오시는 길","🚻 화장실 안내"]},
 {id:"traffic_control",keywords:["통제","차량통제","차량 통제","통제구간","통제 구간","교통통제","도로통제","도로 통제","도로점용","도로 점용","차 못 들어가","진입금지","진입 금지","우회","안전요원","행사구간","주요행사구간","차량"],title:"🚧 통제구간 안내",answer:`<strong>🚧 차량 통제구간 안내</strong>
 
-<a class="map-link" href="${PARKING_MAP_IMAGE}" target="_blank" rel="noopener">
+<a class="map-link" href="${PARKING_MAP_IMAGE}" download="나주읍성_주차통제지도.jpg">
   <img class="map-img" src="${PARKING_MAP_IMAGE}" alt="나주읍성 문화대잔치 주차장 및 차량 통제구간 안내 지도">
 </a>
-<div class="map-caption">※ 이미지를 누르면 크게 볼 수 있어요. 지도상 붉은색은 차량통제구간, 번호는 주차 가능 공간입니다.</div>
+<a class="map-download" href="${PARKING_MAP_IMAGE}" download="나주읍성_주차통제지도.jpg">📥 지도 이미지 다운로드</a>
+<div class="map-caption">※ 지도 이미지를 누르거나 다운로드 버튼을 누르면 이미지를 저장할 수 있어요. 지도상 붉은색은 차량통제구간, 번호는 주차 가능 공간입니다.</div>
 
 행사 운영 시 지도상 <strong>붉은색으로 표시된 주요 행사구간</strong>은 차량 진입이 제한될 수 있어요.
 
