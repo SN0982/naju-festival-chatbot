@@ -4,133 +4,92 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>나주읍성 문화대잔치 안내 챗봇</title>
-  <meta name="description" content="나주읍성 문화대잔치 일정, 프로그램, 주차, 루마니아 국제교류전 안내" />
+  <meta name="description" content="나주읍성 문화대잔치 일정, 프로그램, 주차, 루마니아 국제교류전 안내 챗봇" />
   <style>
     :root{
-      --green:#00a77d; --deep:#056b55; --mint:#dff4f1; --sky:#d8eef1;
-      --orange:#f58232; --ink:#263238; --muted:#66737a; --line:#d7e5e2;
-      --card:#ffffff; --shadow:0 16px 40px rgba(5,107,85,.12);
+      --green:#00a77d; --deep:#056b55; --sky:#d8eef1; --ink:#263238;
+      --muted:#66737a; --line:#d7e5e2; --card:#fff; --orange:#f58232;
+      --shadow:0 18px 48px rgba(5,107,85,.16);
     }
-    *{box-sizing:border-box} body{margin:0;font-family:Pretendard,Apple SD Gothic Neo,Noto Sans KR,system-ui,-apple-system,sans-serif;color:var(--ink);background:linear-gradient(180deg,var(--sky),#f6fbfa 46%,#fff)}
-    a{color:inherit} .wrap{width:min(1120px,calc(100% - 32px));margin:auto}
-    header{position:relative;overflow:hidden;padding:56px 0 36px;background:linear-gradient(135deg,#ccebed 0%,#e7f7f3 100%)}
-    .badge{display:inline-flex;gap:8px;align-items:center;background:var(--green);color:#fff;font-weight:800;border-radius:999px;padding:8px 14px;font-size:14px}
-    h1{font-size:clamp(44px,9vw,96px);line-height:.95;margin:24px 0 16px;color:var(--green);letter-spacing:-.08em;font-weight:900}
-    .lead{font-size:clamp(18px,3vw,28px);font-weight:800;line-height:1.35;margin:0 0 22px}.sub{color:var(--muted);font-size:16px;line-height:1.8;max-width:760px}
-    .hero-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:24px;align-items:end}.info-box{background:#fff;border:1px solid var(--line);border-radius:28px;padding:24px;box-shadow:var(--shadow)}
-    .info-row{display:grid;grid-template-columns:72px 1fr;gap:12px;padding:10px 0;border-bottom:1px dashed var(--line)}.info-row:last-child{border-bottom:0}.label{color:var(--green);font-weight:900}.value{font-weight:800}
-    .landscape{position:absolute;inset:auto 0 0;height:90px;background:radial-gradient(120px 50px at 15% 70%,#9ad45f 0 70%,transparent 71%),radial-gradient(210px 70px at 50% 100%,#58b947 0 70%,transparent 71%),radial-gradient(220px 80px at 88% 80%,#77c954 0 70%,transparent 71%);opacity:.72}
-    main{padding:34px 0 64px} section{margin:32px 0}.section-title{display:flex;align-items:center;gap:12px;margin-bottom:16px} .section-title h2{font-size:32px;margin:0;color:var(--deep);letter-spacing:-.04em}.section-title:after{content:"";height:1px;flex:1;background:var(--line)}
-    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.card{background:var(--card);border:1px solid var(--line);border-radius:24px;padding:22px;box-shadow:0 8px 24px rgba(0,0,0,.04)}.card h3{margin:0 0 10px;font-size:22px;color:var(--deep)}.date{display:inline-flex;align-items:center;gap:6px;color:#fff;background:var(--orange);border-radius:999px;padding:6px 10px;font-weight:900;margin-bottom:12px}.meta{display:grid;gap:8px;margin:12px 0;color:#41515a}.meta b{color:var(--green);margin-right:6px}.note{font-size:14px;color:var(--muted);line-height:1.65}.pill{display:inline-flex;background:#eef8f4;color:var(--deep);border:1px solid #cfe9df;border-radius:999px;padding:5px 10px;font-size:13px;font-weight:800;margin:4px 4px 0 0}
-    .timeline{display:grid;gap:10px}.timeitem{display:grid;grid-template-columns:110px 1fr;gap:16px;background:#fff;border:1px solid var(--line);border-radius:18px;padding:14px}.timeitem b{color:var(--green)}
-    .chat{display:grid;grid-template-columns:.85fr 1.15fr;gap:16px}.quick{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}.quick button,.send{border:0;background:var(--green);color:#fff;font-weight:900;border-radius:999px;padding:10px 14px;cursor:pointer}.quick button{background:#fff;color:var(--deep);border:1px solid var(--line)}
-    .chatbox{background:#fff;border:1px solid var(--line);border-radius:24px;overflow:hidden;box-shadow:var(--shadow)}.messages{height:360px;overflow:auto;padding:18px;display:flex;flex-direction:column;gap:10px}.msg{max-width:86%;padding:12px 14px;border-radius:18px;line-height:1.6;white-space:pre-line}.bot{background:#eef8f4;align-self:flex-start}.user{background:var(--green);color:#fff;align-self:flex-end}.chatinput{display:flex;gap:8px;padding:12px;border-top:1px solid var(--line)}.chatinput input{flex:1;border:1px solid var(--line);border-radius:999px;padding:12px 14px;font-size:16px}
-    .parking{columns:2;column-gap:24px}.parking li{break-inside:avoid;margin:0 0 10px;line-height:1.55}.mapbox{background:linear-gradient(135deg,#eef3f4,#fff);border:1px dashed #b7cbc5;border-radius:24px;padding:22px;line-height:1.8}
-    footer{background:#f2faf7;border-top:1px solid var(--line);padding:28px 0;color:#58706b;font-size:14px}.org{font-weight:900;color:var(--deep)}
-    @media(max-width:850px){.hero-grid,.chat{grid-template-columns:1fr}.cards{grid-template-columns:1fr}.parking{columns:1}h1{font-size:52px}.timeitem{grid-template-columns:1fr}.messages{height:420px}}
+    *{box-sizing:border-box}
+    body{margin:0;min-height:100vh;font-family:Pretendard,Apple SD Gothic Neo,Noto Sans KR,system-ui,-apple-system,sans-serif;color:var(--ink);background:linear-gradient(180deg,var(--sky),#f6fbfa 48%,#fff);display:flex;align-items:center;justify-content:center;padding:18px}
+    .app{width:min(760px,100%)}
+    .brand{text-align:center;margin-bottom:16px}
+    .badge{display:inline-flex;align-items:center;background:var(--green);color:#fff;font-weight:900;border-radius:999px;padding:8px 14px;font-size:13px}
+    h1{margin:14px 0 6px;color:var(--green);font-size:clamp(34px,7vw,58px);line-height:1;letter-spacing:-.07em;font-weight:950}
+    .lead{margin:0;color:var(--muted);font-size:15px;line-height:1.65}
+    .chatbox{background:var(--card);border:1px solid var(--line);border-radius:28px;overflow:hidden;box-shadow:var(--shadow)}
+    .topbar{display:flex;align-items:center;gap:10px;padding:16px 18px;border-bottom:1px solid var(--line);background:#f8fffc}
+    .avatar{width:38px;height:38px;border-radius:50%;background:var(--green);display:grid;place-items:center;color:#fff;font-weight:950}
+    .topbar b{display:block;color:var(--deep)}
+    .topbar span{display:block;color:var(--muted);font-size:13px;margin-top:2px}
+    .messages{height:min(58vh,520px);min-height:380px;overflow:auto;padding:18px;display:flex;flex-direction:column;gap:10px;scroll-behavior:smooth}
+    .msg{max-width:88%;padding:12px 14px;border-radius:18px;line-height:1.62;white-space:pre-line;font-size:15px}
+    .bot{background:#eef8f4;align-self:flex-start;border-top-left-radius:6px}.user{background:var(--green);color:#fff;align-self:flex-end;border-top-right-radius:6px}
+    .quick{display:flex;gap:8px;overflow:auto;padding:0 14px 12px;border-top:1px solid var(--line);background:#fff}
+    .quick button{white-space:nowrap;border:1px solid var(--line);background:#fff;color:var(--deep);font-weight:900;border-radius:999px;padding:9px 12px;cursor:pointer}
+    .quick button:hover{border-color:var(--green);background:#f2fbf7}
+    .chatinput{display:flex;gap:8px;padding:12px 14px 14px;background:#fff}
+    .chatinput input{flex:1;border:1px solid var(--line);border-radius:999px;padding:13px 15px;font-size:16px;outline:none}.chatinput input:focus{border-color:var(--green);box-shadow:0 0 0 4px rgba(0,167,125,.12)}
+    .send{border:0;background:var(--green);color:#fff;font-weight:950;border-radius:999px;padding:0 18px;cursor:pointer}
+    .foot{text-align:center;color:var(--muted);font-size:12px;line-height:1.5;margin-top:12px}
+    a{color:var(--deep);font-weight:900;text-decoration:none}
+    @media(max-width:520px){body{padding:10px;align-items:stretch}.app{display:flex;flex-direction:column}.brand{margin:12px 0}.messages{height:calc(100vh - 300px);min-height:320px}.msg{max-width:94%}.chatinput input{min-width:0}.send{padding:0 14px}}
   </style>
 </head>
 <body>
-  <header>
-    <div class="wrap hero-grid">
-      <div>
-        <span class="badge">나주읍성 생활권 단위 로컬브랜딩 활성화 사업</span>
-        <h1>나주읍성<br/>문화대잔치</h1>
-        <p class="lead">사람과 시간이 이어지는 나주읍성,<br/>일상과 문화를 다시 연결합니다.</p>
-        <p class="sub">나주 원도심의 역사·문화·생활 자원을 바탕으로 지역 고유의 브랜드와 콘텐츠를 발굴하고, 주민·상인·청년·예술가가 함께 만드는 지속가능한 지역 활성화 행사입니다.</p>
-      </div>
-      <div class="info-box">
-        <div class="info-row"><div class="label">기간</div><div class="value">2026. 5. ~ 9.</div></div>
-        <div class="info-row"><div class="label">장소</div><div class="value">전남 나주시 나주읍성 일대</div></div>
-        <div class="info-row"><div class="label">상시</div><div class="value">4.~10. 인력거투어·한복 체험<br/><span class="note">평일 예약제 / 주말 상시</span></div></div>
-        <div class="info-row"><div class="label">주최</div><div class="value">나주시</div></div>
-        <div class="info-row"><div class="label">주관</div><div class="value">나주문화재단</div></div>
-      </div>
-    </div>
-    <div class="landscape"></div>
-  </header>
-
-  <main class="wrap">
-    <section>
-      <div class="section-title"><h2>6월 주요 프로그램</h2></div>
-      <div class="cards">
-        <article class="card"><span class="date">6.20.(토)~6.21.(일)</span><h3>나주읍성 도심캠핑</h3><div class="meta"><p><b>시간</b>14:00~21:00</p><p><b>장소</b>천년광장(동헌터) 일대</p><p><b>참여</b>사전신청 마감</p></div><p class="note">읍성 내 캠핑 공간 조성을 통해 시민들이 도심 속 휴식과 문화를 함께 즐기는 체류형 프로그램입니다.</p></article>
-        <article class="card"><span class="date">6.20.(토)</span><h3>수문장 교대의식·취타대</h3><div class="meta"><p><b>시간</b>14:00 1회차 / 17:30 2회차</p><p><b>장소</b>나주 금성관 망화루</p><p><b>참여</b>현장 관람</p></div><p class="note">조선시대 수문군의 대열 정비와 교대 절차, 전통 복식 등 군사 의례를 현대적으로 재해석한 현장형 관람 콘텐츠입니다.</p></article>
-        <article class="card"><span class="date">6.20.(토)</span><h3>나주 첫만남센터 개관식</h3><div class="meta"><p><b>시간</b>14:00~16:00</p><p><b>장소</b>나주 첫만남센터<br/>나주시 나주로 143</p><p><b>참여</b>현장 관람</p></div><p class="note">나주-프랑스 첫만남을 기념하는 ‘나주 첫만남센터’ 개관식 프로그램입니다.</p></article>
-        <article class="card"><span class="date">6.27.(토)</span><h3>골목유람 &lt;나주읍성 달빛산책&gt;</h3><div class="meta"><p><b>시간</b>19:30~21:30</p><p><b>장소</b>나주 나빌레라문화센터 및 나주읍성 일대</p><p><b>참여</b>사전신청 · 선착순 · 네이버폼 접수</p></div><p class="note">문화해설사가 들려주는 나주읍성 골목길 시간여행, 희망새 테라코타 만들기, 로컬 크리에이터 행운마켓 체험이 함께 운영됩니다.</p></article>
-        <article class="card"><span class="date">6.27.(토)</span><h3>첫만남 식탁-살롱 드 퀴진</h3><div class="meta"><p><b>시간</b>16:00~18:00</p><p><b>장소</b>나주 첫만남센터<br/>나주시 나주로 143</p><p><b>참여</b>사전신청 · 선착순 · 네이버폼 접수</p></div><p class="note">19세기 말 프랑스 요리문화 황금기를 모티브로 프랑스 식문화를 경험하고 나주형 로컬 문화를 요리하는 프로그램입니다.</p></article>
-        <article class="card"><span class="date">6.21.(일)</span><h3>나주읍성 도심캠핑</h3><div class="meta"><p><b>연계</b>6.20.~6.21. 도심캠핑 운영</p></div><p class="note">운영상황에 따라 세부 일정 및 프로그램은 변경될 수 있습니다.</p></article>
-      </div>
+  <main class="app">
+    <section class="brand" aria-label="행사명">
+      <span class="badge">나주읍성 생활권 단위 로컬브랜딩 활성화 사업</span>
+      <h1>나주읍성 문화대잔치</h1>
+      <p class="lead">궁금한 내용을 질문하면 일정·장소·주차·신청방법을 안내합니다.</p>
     </section>
 
-    <section>
-      <div class="section-title"><h2>나주, 루마니아를 품다</h2></div>
-      <div class="card">
-        <span class="pill">Naju, Welcoming the Romanian Soil</span><span class="pill">나주 정미소</span><span class="pill">국제교류전</span>
-        <h3>루마니아 국제교류 문화교류전</h3>
-        <div class="meta"><p><b>전시기간</b>2026. 6. 20.(토) ~ 6. 29.(월) / 10일간</p><p><b>오픈식</b>2026. 6. 20.(토) 19:00~</p><p><b>장소</b>나주 정미소</p></div>
-        <p class="note">주한 루마니아 대사관과 함께 콘스탄틴 브랑쿠시 사진전·건축전, 호레주 도자기, 유네스코 인류무형문화유산 전통 블라우스 ‘이아(ia)’, 미하엘라 너스타세 작품전 등을 선보입니다.</p>
-        <div class="timeline" style="margin-top:16px">
-          <div class="timeitem"><b>17:30~18:00</b><span>망화루 수문장 교대의식 관람</span></div>
-          <div class="timeitem"><b>18:02~18:17</b><span>취타대 연주 및 빈례 행렬 출발</span></div>
-          <div class="timeitem"><b>18:20~18:30</b><span>정미소 이동 및 행사장 내부 정리</span></div>
-          <div class="timeitem"><b>18:30~19:00</b><span>식전공연 및 개회</span></div>
-          <div class="timeitem"><b>19:00~19:30</b><span>전시관람, 라운딩, 기념촬영</span></div>
-          <div class="timeitem"><b>19:30~20:30</b><span>리셉션 및 자유환담</span></div>
-        </div>
+    <section class="chatbox" aria-label="행사안내 챗봇">
+      <div class="topbar">
+        <div class="avatar">N</div>
+        <div><b>행사안내 챗봇</b><span>질문한 내용에 맞춰 필요한 정보만 보여드립니다.</span></div>
       </div>
-    </section>
+      <div id="messages" class="messages"><div class="msg bot">안녕하세요. 나주읍성 문화대잔치 안내 챗봇입니다.
 
-    <section>
-      <div class="section-title"><h2>이후 행사 일정</h2></div>
-      <div class="cards">
-        <article class="card"><span class="date">9.12.(토)</span><h3>9월 집중 행사</h3><p class="note">수문장 교대의식 · 나주읍성 도심캠핑 · 정수루 북 두드림 · 나주읍성 달빛산책</p></article>
-        <article class="card"><span class="date">9.19.(토)</span><h3>밤마실 콘서트</h3><p class="note">나주읍성의 밤 분위기와 함께 즐기는 공연 프로그램입니다.</p></article>
-        <article class="card"><span class="date">4.~10. 상시</span><h3>인력거투어·한복 체험</h3><p class="note">평일은 예약제로, 주말은 상시 운영됩니다.</p></article>
+예: “6월 일정”, “주차”, “첫만남센터”, “루마니아 전시”, “달빛산책 신청”처럼 질문해 주세요.</div></div>
+      <div class="quick" aria-label="빠른 질문">
+        <button onclick="ask('6월 일정 알려줘')">6월 일정</button>
+        <button onclick="ask('주차 어디에 해?')">주차 안내</button>
+        <button onclick="ask('첫만남센터 개관식')">첫만남센터</button>
+        <button onclick="ask('루마니아 전시는 뭐야?')">루마니아 전시</button>
+        <button onclick="ask('달빛산책 신청')">달빛산책</button>
+        <button onclick="ask('도심캠핑 신청')">도심캠핑</button>
+        <button onclick="ask('9월 일정')">9월 일정</button>
       </div>
+      <form class="chatinput" onsubmit="event.preventDefault(); ask(document.getElementById('q').value); document.getElementById('q').value=''">
+        <input id="q" placeholder="질문을 입력하세요" autocomplete="off" />
+        <button class="send" type="submit">전송</button>
+      </form>
     </section>
-
-    <section class="chat">
-      <div class="card">
-        <div class="section-title"><h2>행사안내 챗봇</h2></div>
-        <p class="note">궁금한 내용을 입력하거나 빠른 질문을 눌러보세요. 일정, 장소, 주차, 루마니아 전시, 신청 방법을 안내합니다.</p>
-        <div class="quick">
-          <button onclick="ask('6월 일정 알려줘')">6월 일정</button><button onclick="ask('주차 어디에 해?')">주차 안내</button><button onclick="ask('첫만남센터 개관식')">첫만남센터</button><button onclick="ask('루마니아 전시는 뭐야?')">루마니아 전시</button><button onclick="ask('달빛산책 신청')">달빛산책</button><button onclick="ask('도심캠핑 신청')">도심캠핑</button>
-        </div>
-      </div>
-      <div class="chatbox">
-        <div id="messages" class="messages"><div class="msg bot">안녕하세요. 나주읍성 문화대잔치 안내 챗봇입니다.\n예: “6월 일정”, “주차”, “루마니아 전시”, “달빛산책 신청”처럼 질문해 주세요.</div></div>
-        <form class="chatinput" onsubmit="event.preventDefault(); ask(document.getElementById('q').value); document.getElementById('q').value=''">
-          <input id="q" placeholder="질문을 입력하세요" autocomplete="off" /> <button class="send">전송</button>
-        </form>
-      </div>
-    </section>
-
-    <section>
-      <div class="section-title"><h2>행사권역 및 주차</h2></div>
-      <div class="mapbox"><b>주요 행사권역</b> 천년광장 · 나주 첫만남센터 · 나빌레라문화센터 · 금성관 · 망화루 · 정수루 · 나주정미소 일대</div>
-      <div class="card" style="margin-top:16px"><h3>공영주차장 안내</h3><ul class="parking">
-        <li>금화상점가 공영주차장 — 나주시 성북동 207 / 93대</li><li>나주향교 인근 공영주차장 — 나주시 서내동 72-7 / 55대</li><li>나주신협 건너편 공영주차장 — 나주시 금성동 30-17 / 55대</li><li>금성지구대 앞 공영주차장 — 나주시 남외동 61-2 / 35대</li><li>성북동행정복지센터 앞 공영주차장 — 나주시 금성동 30-17 / 55대</li><li>금성관 옆 공영주차장 — 나주시 과원동 134-1 / 110대</li><li>나주신청문화관 앞 공영주차장 — 나주시 교동 76-3 / 68대</li><li>남고문 인근 공영주차장 — 나주시 남내동 68 / 49대</li><li>세왕아파트 앞 공영주차장 — 나주시 남내동 9 / 60대</li><li>나주성당 인근 공영주차장 — 나주시 산정동 38-1 / 67대</li>
-      </ul></div>
-    </section>
+    <p class="foot">주최 나주시 · 주관 나주문화재단<br/>※ 일정 및 프로그램은 운영 상황에 따라 변경될 수 있습니다.</p>
   </main>
-
-  <footer><div class="wrap"><span class="org">나주시 · 나주문화재단</span><br/>후원: 나주읍성마을관리사회적협동조합<br/>※ 상기 일정 및 프로그램은 운영 상황에 따라 변경될 수 있습니다.</div></footer>
 
   <script>
     const answers=[
-      {keys:['6월','일정'], text:'6월 주요 일정입니다.\n- 6.20.(토) 14:00~16:00 나주 첫만남센터 개관식\n- 6.20.(토) 14:00 / 17:30 수문장 교대의식·취타대\n- 6.20.(토)~6.21.(일) 나주읍성 도심캠핑\n- 6.27.(토) 16:00~18:00 첫만남 식탁-살롱 드 퀴진\n- 6.27.(토) 19:30~21:30 나주읍성 달빛산책'},
-      {keys:['주차','주차장','차'], text:'행사장 주변 공영주차장은 금성관 옆, 나주신청문화관 앞, 남고문 인근, 세왕아파트 앞, 나주성당 인근, 금화상점가, 나주향교 인근, 나주신협 건너편, 금성지구대 앞 등이 있습니다. 현장 혼잡이 예상되므로 여유 있게 이동해 주세요.'},
-      {keys:['첫만남','개관식','센터'], text:'나주 첫만남센터 개관식은 6.20.(토) 14:00~16:00, 나주 첫만남센터(나주시 나주로 143)에서 진행됩니다. 현장 관람 방식입니다.'},
-      {keys:['루마니아','전시','품다','브랑쿠시','이아','호레주'], text:'「나주, 루마니아를 품다」는 나주 정미소에서 열리는 루마니아 국제교류 문화교류전입니다. 전시기간은 6.20.(토)~6.29.(월), 오픈식은 6.20.(토) 19:00부터입니다. 브랑쿠시 사진전·건축전, 호레주 도자기, 전통 블라우스 이아(ia), 미하엘라 너스타세 작품전 등을 관람할 수 있습니다.'},
-      {keys:['달빛','산책','골목유람'], text:'골목유람 <나주읍성 달빛산책>은 6.27.(토) 19:30~21:30, 나빌레라문화센터 및 나주읍성 일대에서 진행됩니다. 사전신청·선착순·네이버폼 접수 프로그램입니다.'},
-      {keys:['도심캠핑','캠핑'], text:'나주읍성 도심캠핑은 6.20.(토)~6.21.(일) 14:00~21:00, 천년광장(동헌터) 일대에서 운영됩니다. 현재 사전신청은 마감되었습니다.'},
-      {keys:['9월','이후'], text:'이후 주요 일정입니다.\n- 9.12.(토): 수문장 교대의식, 나주읍성 도심캠핑, 정수루 북 두드림, 나주읍성 달빛산책\n- 9.19.(토): 밤마실 콘서트'},
-      {keys:['상시','인력거','한복'], text:'상시 프로그램은 4월부터 10월까지 운영되는 인력거투어·한복 체험입니다. 평일은 예약제, 주말은 상시 운영입니다.'}
+      {keys:['6월','일정'], text:'6월 주요 일정입니다.\n\n- 6.20.(토) 14:00~16:00 나주 첫만남센터 개관식\n- 6.20.(토) 14:00 / 17:30 수문장 교대의식·취타대\n- 6.20.(토)~6.21.(일) 나주읍성 도심캠핑\n- 6.21.(일) 나주읍성 도심캠핑\n- 6.27.(토) 16:00~18:00 첫만남 식탁-살롱 드 퀴진\n- 6.27.(토) 19:30~21:30 골목유람 <나주읍성 달빛산책>'},
+      {keys:['주차','주차장','차'], text:'행사장 주변 공영주차장 안내입니다.\n\n- 금화상점가 공영주차장: 나주시 성북동 207 / 93대\n- 나주향교 인근 공영주차장: 나주시 서내동 72-7 / 55대\n- 나주신협 건너편 공영주차장: 나주시 금성동 30-17 / 55대\n- 금성지구대 앞 공영주차장: 나주시 남외동 61-2 / 35대\n- 성북동행정복지센터 앞 공영주차장: 나주시 금성동 30-17 / 55대\n- 금성관 옆 공영주차장: 나주시 과원동 134-1 / 110대\n- 나주신청문화관 앞 공영주차장: 나주시 교동 76-3 / 68대\n- 남고문 인근 공영주차장: 나주시 남내동 68 / 49대\n- 세왕아파트 앞 공영주차장: 나주시 남내동 9 / 60대\n- 나주성당 인근 공영주차장: 나주시 산정동 38-1 / 67대\n\n현장 혼잡이 예상되므로 여유 있게 이동해 주세요.'},
+      {keys:['첫만남','개관식','센터'], text:'나주 첫만남센터 개관식 안내입니다.\n\n- 일시: 6.20.(토) 14:00~16:00\n- 장소: 나주 첫만남센터, 나주시 나주로 143\n- 참여방법: 현장 관람\n- 내용: 나주-프랑스 첫만남을 기념하는 첫만남센터 개관식 프로그램입니다.'},
+      {keys:['루마니아','전시','품다','브랑쿠시','이아','호레주'], text:'「나주, 루마니아를 품다」 안내입니다.\n\n- 영문명: Naju, Welcoming the Romanian Soil\n- 전시기간: 2026. 6.20.(토)~6.29.(월) / 10일간\n- 오픈식: 2026. 6.20.(토) 19:00~\n- 장소: 나주 정미소\n- 전시내용: 콘스탄틴 브랑쿠시 사진전·건축전, 호레주 도자기, 유네스코 인류무형문화유산 전통 블라우스 이아(ia), 미하엘라 너스타세 작품전 등'},
+      {keys:['루마니아','오픈식'], text:'루마니아 국제교류전 오픈식 주요 흐름입니다.\n\n- 17:30~18:00 망화루 수문장 교대의식 관람\n- 18:02~18:17 취타대 연주 및 빈례 행렬 출발\n- 18:20~18:30 정미소 이동 및 행사장 정리\n- 18:30~19:00 식전공연 및 개회\n- 19:00~19:30 전시관람, 라운딩, 기념촬영\n- 19:30~20:30 리셉션 및 자유환담'},
+      {keys:['달빛','산책','골목유람'], text:'골목유람 <나주읍성 달빛산책> 안내입니다.\n\n- 일시: 6.27.(토) 19:30~21:30\n- 장소: 나주 나빌레라문화센터 및 나주읍성 일대\n- 참여방법: 사전신청 · 선착순 · 네이버폼 접수\n- 내용: 문화해설사가 들려주는 나주읍성 골목길 시간여행, 희망새 테라코타 만들기, 로컬 크리에이터 행운마켓 체험'},
+      {keys:['식탁','살롱','퀴진','프랑스','요리'], text:'첫만남 식탁-살롱 드 퀴진 안내입니다.\n\n- 일시: 6.27.(토) 16:00~18:00\n- 장소: 나주 첫만남센터, 나주시 나주로 143\n- 참여방법: 사전신청 · 선착순 · 네이버폼 접수\n- 내용: 19세기 말 프랑스 요리문화 황금기를 모티브로 프랑스 식문화를 경험하고 나주형 로컬 문화를 요리하는 프로그램입니다.'},
+      {keys:['도심캠핑','캠핑'], text:'나주읍성 도심캠핑 안내입니다.\n\n- 일시: 6.20.(토)~6.21.(일) 14:00~21:00\n- 장소: 천년광장(동헌터) 일대\n- 참여방법: 사전신청 마감\n- 내용: 읍성 내 캠핑 공간 조성을 통해 도심 속 휴식과 문화를 함께 즐기는 체류형 프로그램입니다.'},
+      {keys:['수문장','취타대','교대'], text:'수문장 교대의식·취타대 안내입니다.\n\n- 일시: 6.20.(토) 14:00 1회차 / 17:30 2회차\n- 장소: 나주 금성관 망화루\n- 참여방법: 현장 관람\n- 내용: 조선시대 수문군의 대열 정비와 교대 절차, 전통 복식을 현대적으로 재해석한 현장형 관람 콘텐츠입니다.'},
+      {keys:['9월','이후'], text:'9월 이후 주요 일정입니다.\n\n- 9.12.(토): 수문장 교대의식, 나주읍성 도심캠핑, 정수루 북 두드림, 나주읍성 달빛산책\n- 9.19.(토): 밤마실 콘서트'},
+      {keys:['상시','인력거','한복'], text:'상시 프로그램 안내입니다.\n\n- 기간: 4월~10월\n- 내용: 인력거투어·한복 체험\n- 운영: 평일 예약제 / 주말 상시 운영'},
+      {keys:['장소','어디','위치'], text:'주요 행사권역은 천년광장, 나주 첫만남센터, 나빌레라문화센터, 금성관, 망화루, 정수루, 나주정미소 일대입니다.\n\n원하는 프로그램명을 함께 질문하면 해당 장소를 더 정확히 안내해 드립니다.'},
+      {keys:['주최','주관','문의'], text:'행사 주최·주관 안내입니다.\n\n- 주최: 나주시\n- 주관: 나주문화재단\n- 후원: 나주읍성마을관리사회적협동조합\n\n상세 문의는 행사안내 채널 또는 나주문화재단 안내를 확인해 주세요.'}
     ];
     function add(text,type){const m=document.getElementById('messages');const d=document.createElement('div');d.className='msg '+type;d.textContent=text;m.appendChild(d);m.scrollTop=m.scrollHeight;}
-    function reply(q){const s=(q||'').trim();if(!s)return;const hit=answers.find(a=>a.keys.every(k=>s.includes(k))||a.keys.some(k=>s.includes(k)));return hit?hit.text:'확인 가능한 안내입니다. “6월 일정”, “주차”, “첫만남센터”, “루마니아 전시”, “달빛산책”, “도심캠핑”, “9월 일정” 중 하나로 질문해 주세요.'}
-    function ask(q){if(!q||!q.trim())return;add(q,'user');setTimeout(()=>add(reply(q),'bot'),160)}
+    function normalize(s){return (s||'').replace(/\s+/g,'').toLowerCase();}
+    function reply(q){const s=normalize(q);if(!s)return '';let hit=answers.find(a=>a.keys.every(k=>s.includes(normalize(k))));if(!hit)hit=answers.find(a=>a.keys.some(k=>s.includes(normalize(k))));return hit?hit.text:'확인 가능한 안내 범위입니다.\n\n“6월 일정”, “주차”, “첫만남센터”, “루마니아 전시”, “달빛산책”, “도심캠핑”, “수문장”, “9월 일정”, “상시 프로그램”처럼 질문해 주세요.'}
+    function ask(q){if(!q||!q.trim())return;add(q,'user');setTimeout(()=>add(reply(q),'bot'),140)}
   </script>
 </body>
 </html>
