@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>나주읍성 문화대잔치 안내 챗봇</title>
 <style>
-:root{--g:#00a77d;--d:#063f34;--m:#eef8f4;--l:#d7e5e2;--t:#223036}*{box-sizing:border-box}body{margin:0;font-family:Apple SD Gothic Neo,Noto Sans KR,system-ui,sans-serif;background:linear-gradient(#d8eef1,#fff);color:var(--t)}header,main,footer{width:min(920px,calc(100% - 24px));margin:auto}header{text-align:center;padding:34px 0 14px}.badge{display:inline-block;background:var(--g);color:#fff;border-radius:999px;padding:8px 14px;font-weight:800;font-size:13px}h1{margin:16px 0 8px;color:var(--g);font-size:clamp(34px,7vw,56px);line-height:1.05;letter-spacing:-.06em}header p{color:#667;margin:0;line-height:1.6}.guide{background:rgba(255,255,255,.78);border:1px solid var(--l);border-radius:22px;padding:18px;box-shadow:0 14px 36px rgba(5,107,85,.12)}.guide h2{margin:0 0 12px;color:var(--d)}.quick{display:flex;flex-wrap:wrap;gap:8px}.quick button,.chatinput button,.posterBtn,.close{border:0;border-radius:999px;font-weight:900;cursor:pointer}.quick button,.posterBtn{background:#fff;color:var(--d);border:1px solid var(--l);padding:10px 13px}.chatbox{margin-top:14px;background:#fff;border:1px solid var(--l);border-radius:24px;overflow:hidden;box-shadow:0 14px 36px rgba(5,107,85,.12)}.messages{height:66vh;min-height:430px;overflow:auto;padding:18px;background:#fbfefe;display:flex;flex-direction:column;gap:10px}.msg{max-width:92%;padding:13px 15px;border-radius:18px;line-height:1.65;white-space:pre-line}.bot{background:var(--m);align-self:flex-start}.user{background:var(--g);color:#fff;align-self:flex-end}.posterRow{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}.chatinput{display:flex;gap:8px;padding:12px;border-top:1px solid var(--l)}.chatinput input{flex:1;border:1px solid var(--l);border-radius:999px;padding:13px 16px;font-size:16px}.chatinput button{background:var(--g);color:#fff;padding:12px 16px}.modal{position:fixed;inset:0;background:rgba(0,0,0,.72);display:none;align-items:center;justify-content:center;padding:18px;z-index:10}.modal.open{display:flex}.panel{width:min(980px,100%);max-height:92vh;background:#fff;border-radius:22px;overflow:hidden;display:flex;flex-direction:column}.modalHead{display:flex;justify-content:space-between;align-items:center;padding:14px 16px;border-bottom:1px solid var(--l)}.close{background:#edf4f2;padding:8px 12px}.stage{overflow:auto;padding:14px;background:#f7faf9}.stage img{display:block;max-width:100%;height:auto;margin:auto;border-radius:12px}#posterCaption{margin:0;padding:0 16px 16px;color:#667;line-height:1.6}footer{text-align:center;color:#688;padding:18px 0;font-size:13px}@media(max-width:640px){.messages{height:68vh}.msg{max-width:96%}}
+:root{--g:#00a77d;--d:#063f34;--m:#eef8f4;--l:#d7e5e2;--t:#223036}*{box-sizing:border-box}body{margin:0;font-family:Apple SD Gothic Neo,Noto Sans KR,system-ui,sans-serif;background:linear-gradient(#d8eef1,#fff);color:var(--t)}header,main,footer{width:min(920px,calc(100% - 24px));margin:auto}header{text-align:center;padding:34px 0 14px}.badge{display:inline-block;background:var(--g);color:#fff;border-radius:999px;padding:8px 14px;font-weight:800;font-size:13px}h1{margin:16px 0 8px;color:var(--g);font-size:clamp(34px,7vw,56px);line-height:1.05;letter-spacing:-.06em}header p{color:#667;margin:0;line-height:1.6}.guide{background:rgba(255,255,255,.78);border:1px solid var(--l);border-radius:22px;padding:18px;box-shadow:0 14px 36px rgba(5,107,85,.12)}.guide h2{margin:0 0 8px;color:var(--d)}.guide p{margin:0 0 12px;color:#667;line-height:1.6}.quick{display:flex;flex-wrap:wrap;gap:8px}.quick button,.chatinput button,.posterBtn,.close{border:0;border-radius:999px;font-weight:900;cursor:pointer}.quick button,.posterBtn{background:#fff;color:var(--d);border:1px solid var(--l);padding:10px 13px}.quick button:hover,.posterBtn:hover{background:#f5fbf9}.chatbox{margin-top:14px;background:#fff;border:1px solid var(--l);border-radius:24px;overflow:hidden;box-shadow:0 14px 36px rgba(5,107,85,.12)}.messages{height:66vh;min-height:430px;overflow:auto;padding:18px;background:#fbfefe;display:flex;flex-direction:column;gap:10px}.msg{max-width:92%;padding:13px 15px;border-radius:18px;line-height:1.65;white-space:pre-line}.bot{background:var(--m);align-self:flex-start}.user{background:var(--g);color:#fff;align-self:flex-end}.posterRow{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}.chatinput{display:flex;gap:8px;padding:12px;border-top:1px solid var(--l)}.chatinput input{flex:1;border:1px solid var(--l);border-radius:999px;padding:13px 16px;font-size:16px}.chatinput button{background:var(--g);color:#fff;padding:12px 16px}.modal{position:fixed;inset:0;background:rgba(0,0,0,.72);display:none;align-items:center;justify-content:center;padding:18px;z-index:10}.modal.open{display:flex}.panel{width:min(980px,100%);max-height:92vh;background:#fff;border-radius:22px;overflow:hidden;display:flex;flex-direction:column}.modalHead{display:flex;justify-content:space-between;align-items:center;padding:14px 16px;border-bottom:1px solid var(--l)}.close{background:#edf4f2;padding:8px 12px}.stage{overflow:auto;padding:14px;background:#f7faf9}.stage img{display:block;max-width:100%;height:auto;margin:auto;border-radius:12px}#posterCaption{margin:0;padding:0 16px 16px;color:#667;line-height:1.6}footer{text-align:center;color:#688;padding:18px 0;font-size:13px}@media(max-width:640px){.messages{height:68vh}.msg{max-width:96%}.quick button{font-size:14px;padding:9px 11px}}
 </style>
 </head>
 <body>
@@ -17,18 +17,30 @@
 <main>
   <section class="guide">
     <h2>궁금한 내용을 질문해주세요!</h2>
+    <p>예상 질문을 먼저 정리해두었습니다. 아래 버튼을 누르거나 직접 입력해 주세요.</p>
     <div class="quick">
+      <button onclick="ask('전체 일정 알려줘')">전체 일정</button>
       <button onclick="ask('6월 일정 알려줘')">6월 일정</button>
-      <button onclick="ask('문화대잔치 포스터 보여줘')">문화대잔치 포스터</button>
-      <button onclick="ask('달빛산책 포스터 보여줘')">달빛산책 포스터</button>
-      <button onclick="ask('첫만남센터 포스터 보여줘')">첫만남센터 포스터</button>
-      <button onclick="ask('루마니아 전시 포스터 보여줘')">루마니아 전시 포스터</button>
+      <button onclick="ask('9월 일정 알려줘')">9월 일정</button>
+      <button onclick="ask('행사 장소가 어디야?')">행사 장소</button>
       <button onclick="ask('주차 어디에 해?')">주차 안내</button>
+      <button onclick="ask('문화대잔치 포스터 보여줘')">문화대잔치 포스터</button>
+      <button onclick="ask('달빛산책 일정 알려줘')">달빛산책</button>
+      <button onclick="ask('달빛산책 포스터 보여줘')">달빛산책 포스터</button>
+      <button onclick="ask('달빛산책 신청 방법 알려줘')">달빛산책 신청</button>
+      <button onclick="ask('첫만남센터 개관식 알려줘')">첫만남센터 개관식</button>
+      <button onclick="ask('첫만남센터 포스터 보여줘')">첫만남센터 포스터</button>
+      <button onclick="ask('루마니아 전시 알려줘')">루마니아 전시</button>
+      <button onclick="ask('루마니아 전시 포스터 보여줘')">루마니아 전시 포스터</button>
+      <button onclick="ask('도심캠핑 알려줘')">도심캠핑</button>
+      <button onclick="ask('수문장 교대의식 알려줘')">수문장 교대의식</button>
+      <button onclick="ask('상시 프로그램 알려줘')">상시 프로그램</button>
+      <button onclick="ask('문의처 알려줘')">문의처</button>
     </div>
   </section>
   <section class="chatbox">
     <div id="messages" class="messages"><div class="msg bot">안녕하세요. 나주읍성 문화대잔치 안내 챗봇입니다.
-“달빛산책 포스터”, “첫만남센터 개관식”, “루마니아 전시”, “6월 일정”, “주차”처럼 질문해 주세요.</div></div>
+예상 질문을 눌러보거나, “6월 일정”, “주차”, “달빛산책 신청”, “첫만남센터 개관식”, “루마니아 전시”, “도심캠핑”, “수문장 교대의식”처럼 질문해 주세요.</div></div>
     <form class="chatinput" onsubmit="event.preventDefault();const q=document.getElementById('q');ask(q.value);q.value='';">
       <input id="q" placeholder="질문을 입력하세요" autocomplete="off"><button>전송</button>
     </form>
@@ -39,16 +51,31 @@
 <script>
 const posters={festival:{title:'나주읍성 문화대잔치 종합 포스터',src:'posters/festival.png.png',cap:'행사 전체 일정과 주요 프로그램 안내 포스터입니다.'},moon:{title:'골목유람 달빛산책 포스터',src:'posters/moon-main.png.png',cap:'2026.6.27.(토) 19:30~21:30, 나빌레라문화센터 및 읍성권 골목 일대.'},moonProgram:{title:'달빛산책 프로그램 소개',src:'posters/moon-program.png.png',cap:'A조/B조 프로그램 시간과 달빛산책 동선 안내입니다.'},first:{title:'나주 첫만남센터 개관 포스터',src:'posters/firstmeet.png.jpg',cap:'2026.6.20.(토) 14:00, 나주첫만남센터 및 동헌터 일원.'},romania:{title:'나주, 루마니아를 품다 포스터',src:'posters/Romania.png.png',cap:'나주-루마니아 문화교류전. 2026.6.20.(토)~6.29.(월), 나주작은미술관.'}};
 const rules=[
- {k:['달빛','산책'],t:'골목유람 <나주읍성 달빛산책>은 2026년 6월 27일(토) 19:30~21:30, 나빌레라문화센터 및 읍성권 골목 일대에서 진행됩니다.\n포스터와 프로그램 소개 이미지를 확인할 수 있습니다.',p:['moon','moonProgram']},
- {k:['첫만남'],t:'나주 첫만남센터 개관식은 2026년 6월 20일(토) 14:00, 나주첫만남센터 및 동헌터 일원에서 진행됩니다.',p:['first']},
- {k:['루마니아'],t:'「나주, 루마니아를 품다」는 나주-루마니아 문화교류전입니다.\n기간은 2026년 6월 20일(토)부터 6월 29일(월)까지이며, 장소는 나주작은미술관입니다.',p:['romania']},
- {k:['문화대잔치'],t:'나주읍성 문화대잔치 종합 포스터를 확인할 수 있습니다.',p:['festival']},
- {k:['6월'],t:'6월 주요 일정입니다.\n- 6.20.(토) 나주 첫만남센터 개관식\n- 6.20.(토) 수문장 교대의식·취타대\n- 6.20.(토)~6.21.(일) 나주읍성 도심캠핑\n- 6.27.(토) 골목유람 <나주읍성 달빛산책>',p:['festival','first','moon']},
- {k:['주차'],t:'행사장 주변 공영주차장은 금성관 옆, 나주신청문화관 앞, 남고문 인근, 세왕아파트 앞, 나주성당 인근 등을 이용할 수 있습니다. 현장 혼잡이 예상되니 여유 있게 이동해 주세요.',p:[]}
+ {k:['전체','일정'],t:'나주읍성 문화대잔치 전체 일정입니다.\n- 4월~10월 상시: 인력거투어·한복 체험\n- 6.20.(토): 나주 첫만남센터 개관식, 수문장 교대의식·취타대\n- 6.20.(토)~6.21.(일): 나주읍성 도심캠핑\n- 6.27.(토): 골목유람 <나주읍성 달빛산책>, 첫만남 식탁-살롱 드 퀴진\n- 9.12.(토): 수문장 교대의식, 도심캠핑, 정수루 북 두드림, 달빛산책\n- 9.19.(토): 밤마실 콘서트\n운영상황에 따라 세부 일정은 변경될 수 있습니다.',p:['festival']},
+ {k:['6월'],t:'6월 주요 일정입니다.\n- 6.20.(토) 14:00~16:00 나주 첫만남센터 개관식\n- 6.20.(토) 14:00 / 17:30 수문장 교대의식·취타대\n- 6.20.(토)~6.21.(일) 나주읍성 도심캠핑\n- 6.27.(토) 16:00~18:00 첫만남 식탁-살롱 드 퀴진\n- 6.27.(토) 19:30~21:30 골목유람 <나주읍성 달빛산책>',p:['festival','first','moon']},
+ {k:['9월'],t:'9월 이후 주요 일정입니다.\n- 9.12.(토): 수문장 교대의식, 나주읍성 도심캠핑, 정수루 북 두드림, 나주읍성 달빛산책\n- 9.19.(토): 밤마실 콘서트\n세부 시간과 운영 내용은 현장 운영 상황에 따라 변경될 수 있습니다.',p:['festival']},
+ {k:['장소'],t:'행사 주요 장소는 전남 나주시 나주읍성 일대입니다.\n주요 권역은 천년광장, 금성관, 망화루, 정수루, 나주 첫만남센터, 나빌레라문화센터, 나주작은미술관 등입니다.\n행사별 장소가 다르므로 세부 프로그램명을 함께 확인해 주세요.',p:['festival']},
+ {k:['주차'],t:'행사장 주변 공영주차장은 금성관 옆, 나주신청문화관 앞, 남고문 인근, 세왕아파트 앞, 나주성당 인근, 금화상점가, 나주향교 인근, 나주신협 건너편, 금성지구대 앞 등을 이용할 수 있습니다.\n현장 혼잡이 예상되므로 여유 있게 이동해 주세요.',p:[]},
+ {k:['문화대잔치'],t:'나주읍성 문화대잔치는 나주 원도심의 역사·문화·생활 자원을 바탕으로 주민, 상인, 청년, 예술가가 함께 만드는 지역 활성화 행사입니다.\n종합 포스터를 확인할 수 있습니다.',p:['festival']},
+ {k:['달빛','산책'],t:'골목유람 <나주읍성 달빛산책>은 2026년 6월 27일(토) 19:30~21:30, 나빌레라문화센터 및 읍성권 골목 일대에서 진행됩니다.\n행운새 테라코타 만들기와 나주읍성 달빛산책이 함께 운영되며, A조/B조로 나누어 진행됩니다.',p:['moon','moonProgram']},
+ {k:['달빛','신청'],t:'골목유람 <나주읍성 달빛산책>은 사전신청·선착순·네이버폼 접수 방식입니다.\n포스터의 QR 또는 행사 안내 페이지의 참여신청 링크를 통해 신청할 수 있습니다.\n정원 마감 여부는 신청 페이지에서 확인해 주세요.',p:['moon','moonProgram']},
+ {k:['첫만남','센터'],t:'나주 첫만남센터 개관식은 2026년 6월 20일(토) 14:00~16:00, 나주 첫만남센터 및 동헌터 일원에서 진행됩니다.\n한불 수교 140주년 및 나주-프랑스 첫만남 175주년을 기념하는 개관 행사입니다.',p:['first']},
+ {k:['개관식'],t:'나주 첫만남센터 개관식은 2026년 6월 20일(토) 14:00~16:00, 나주 첫만남센터 및 동헌터 일원에서 진행됩니다.\n관련 포스터를 함께 확인할 수 있습니다.',p:['first']},
+ {k:['루마니아'],t:'「나주, 루마니아를 품다」는 나주-루마니아 문화교류전입니다.\n기간은 2026년 6월 20일(토)부터 6월 29일(월)까지이며, 장소는 나주작은미술관입니다.\n콘스탄틴 브랑쿠시전과 루마니아 민속 전통 관련 전시를 만나볼 수 있습니다.',p:['romania']},
+ {k:['전시'],t:'전시 프로그램으로는 「나주, 루마니아를 품다」 나주-루마니아 문화교류전이 있습니다.\n기간은 2026.6.20.(토)~6.29.(월), 장소는 나주작은미술관입니다.\n루마니아 전시 포스터를 확인할 수 있습니다.',p:['romania']},
+ {k:['도심','캠핑'],t:'나주읍성 도심캠핑은 2026년 6월 20일(토)~6월 21일(일), 천년광장(동헌터) 일대에서 진행됩니다.\n읍성 내 캠핑 공간 조성을 통해 도심 속 휴식과 문화를 함께 즐기는 체류형 프로그램입니다.\n사전신청은 마감된 것으로 안내되어 있습니다.',p:['festival']},
+ {k:['수문장'],t:'수문장 교대의식·취타대는 2026년 6월 20일(토) 14:00 1회차, 17:30 2회차로 나주 금성관 망화루에서 진행됩니다.\n조선시대 수문군의 대열 정비와 교대 절차, 전통 복식 등을 현대적으로 재해석한 현장형 관람 콘텐츠입니다.',p:['festival']},
+ {k:['취타대'],t:'취타대 관련 프로그램은 수문장 교대의식과 함께 운영됩니다.\n2026년 6월 20일(토) 14:00 1회차, 17:30 2회차로 나주 금성관 망화루에서 관람할 수 있습니다.',p:['festival']},
+ {k:['상시'],t:'상시 프로그램은 4월부터 10월까지 운영되는 인력거투어·한복 체험입니다.\n평일은 예약제, 주말은 상시 운영으로 안내되어 있습니다.',p:['festival']},
+ {k:['인력거'],t:'인력거투어는 4월부터 10월까지 운영되는 상시 프로그램입니다.\n평일은 예약제, 주말은 상시 운영으로 안내되어 있습니다.',p:['festival']},
+ {k:['한복'],t:'한복 체험은 4월부터 10월까지 운영되는 상시 프로그램입니다.\n평일은 예약제, 주말은 상시 운영으로 안내되어 있습니다.',p:['festival']},
+ {k:['문의'],t:'행사 문의는 포스터 기준 061-335-0968로 안내되어 있습니다.\n세부 프로그램별 신청 및 마감 여부는 각 신청 페이지 또는 행사 안내 채널을 확인해 주세요.',p:['moon']},
+ {k:['전화'],t:'행사 문의 전화는 포스터 기준 061-335-0968입니다.',p:['moon']},
+ {k:['신청'],t:'사전신청 프로그램은 각 프로그램별 네이버폼 또는 포스터 QR을 통해 접수하는 방식입니다.\n달빛산책과 첫만남 식탁-살롱 드 퀴진은 사전신청·선착순 접수로 안내되어 있으며, 도심캠핑은 사전신청 마감으로 안내되어 있습니다.',p:['moon','festival']}
 ];
 function norm(s){return(s||'').replace(/\s+/g,'')}
 function add(text,type,plist=[]){const m=document.getElementById('messages');const b=document.createElement('div');b.className='msg '+type;b.textContent=text;m.appendChild(b);if(type==='bot'&&plist.length){const r=document.createElement('div');r.className='posterRow';plist.forEach(x=>{if(!posters[x])return;const btn=document.createElement('button');btn.className='posterBtn';btn.textContent=posters[x].title;btn.onclick=()=>openPoster(x);r.appendChild(btn)});b.appendChild(r)}m.scrollTop=m.scrollHeight}
-function find(q){q=norm(q);let r=rules.find(x=>x.k.every(y=>q.includes(norm(y))))||rules.find(x=>x.k.some(y=>q.includes(norm(y))));return r||{t:'확인 가능한 안내입니다. “6월 일정”, “문화대잔치 포스터”, “달빛산책 포스터”, “첫만남센터 포스터”, “루마니아 전시 포스터”, “주차”처럼 질문해 주세요.',p:[]}}
+function find(q){q=norm(q);let r=rules.find(x=>x.k.every(y=>q.includes(norm(y))))||rules.find(x=>x.k.some(y=>q.includes(norm(y))));return r||{t:'확인 가능한 안내입니다. “전체 일정”, “6월 일정”, “9월 일정”, “행사 장소”, “주차”, “달빛산책 신청”, “첫만남센터 개관식”, “루마니아 전시”, “도심캠핑”, “수문장 교대의식”, “상시 프로그램”, “문의처”처럼 질문해 주세요.',p:[]}}
 function ask(q){if(!q||!q.trim())return;add(q,'user');const r=find(q);setTimeout(()=>add(r.t,'bot',r.p),120)}
 function openPoster(k){const p=posters[k];document.getElementById('posterTitle').textContent=p.title;document.getElementById('posterImage').src=p.src;document.getElementById('posterCaption').textContent=p.cap;document.getElementById('modal').classList.add('open');document.body.style.overflow='hidden'}
 function closePoster(){document.getElementById('modal').classList.remove('open');document.body.style.overflow=''}
