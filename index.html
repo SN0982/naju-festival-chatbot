@@ -1,1 +1,38 @@
-<!doctype html><html lang="ko"><head><meta charset="utf-8"><title>나주읍성 문화대잔치 안내 챗봇</title></head><body><h1>나주읍성 문화대잔치 안내 챗봇</h1><p>복구</p></body></html>
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>나주읍성 문화대잔치 안내 챗봇</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <div class="badge">나주읍성 생활권 단위 로컬브랜딩 활성화 사업</div>
+  <h1>나주읍성 문화대잔치<br>안내 챗봇</h1>
+  <p>일정·주차·전시·행사 포스터는 질문했을 때만 확인할 수 있습니다.</p>
+</header>
+<main>
+  <section class="guide">
+    <h2>궁금한 행사만 바로 물어보세요</h2>
+    <div class="quick">
+      <button onclick="ask('6월 일정 알려줘')">6월 일정</button>
+      <button onclick="ask('문화대잔치 포스터 보여줘')">문화대잔치 포스터</button>
+      <button onclick="ask('달빛산책 포스터 보여줘')">달빛산책 포스터</button>
+      <button onclick="ask('첫만남센터 포스터 보여줘')">첫만남센터 포스터</button>
+      <button onclick="ask('루마니아 전시 포스터 보여줘')">루마니아 전시 포스터</button>
+      <button onclick="ask('주차 어디에 해?')">주차 안내</button>
+    </div>
+  </section>
+  <section class="chatbox">
+    <div id="messages" class="messages"><div class="msg bot">안녕하세요. 나주읍성 문화대잔치 안내 챗봇입니다. “달빛산책 포스터”, “첫만남센터 개관식”, “루마니아 전시”, “6월 일정”, “주차”처럼 질문해 주세요.</div></div>
+    <form class="chatinput" onsubmit="event.preventDefault();const q=document.getElementById('q');ask(q.value);q.value='';">
+      <input id="q" placeholder="질문을 입력하세요" autocomplete="off"><button>전송</button>
+    </form>
+  </section>
+</main>
+<div id="modal" class="modal" onclick="if(event.target===this)closePoster()"><div class="panel"><div class="modalHead"><b id="posterTitle">포스터</b><button onclick="closePoster()">닫기</button></div><div class="stage"><img id="posterImage" alt="행사 포스터"></div><p id="posterCaption"></p></div></div>
+<footer>나주시 · 나주문화재단 · 나주읍성마을관리사회적협동조합</footer>
+<script src="app.js"></script>
+</body>
+</html>
